@@ -17,7 +17,13 @@
   }
 ]
 
-export const Routing = RouterModule.forRoot(routes, { useHash: true, relativeLinkResolution: 'legacy' })
+export const Routing = RouterModule.forRoot([
+  {
+    path: 'shopping-assistant',
+    loadComponent: async () => (await import('./shopping-assistant/shopping-assistant.component')).ShoppingAssistantComponent
+  },
+  ...routes
+], { useHash: true, relativeLinkResolution: 'legacy' })
 
 export function oauthMatcher (url: UrlSegment[]): UrlMatchResult {
   if (url.length === 0) {

@@ -79,6 +79,7 @@ import { applyCoupon } from './routes/coupon'
 import dataErasure from './routes/dataErasure'
 import { dataExport } from './routes/dataExport'
 import { chat } from './routes/chat'
+import { shoppingAssistant } from './routes/shoppingAssistant'
 import { retrieveBasket } from './routes/basket'
 import { searchProducts } from './routes/search'
 import { trackOrder } from './routes/trackOrder'
@@ -655,6 +656,7 @@ function configureApp (app: ReturnType<typeof express>, seq: typeof sequelize) {
 
   /* Chat API endpoint */
   app.post('/rest/chat', utils.asyncHandler(chat()))
+  app.post('/rest/shopping-assistant', rateLimit({ windowMs: 60 * 1000, max: 10 }), utils.asyncHandler(shoppingAssistant()))
 
   /* Web3 API endpoints */
   app.post('/rest/web3/submitKey', utils.asyncHandler(checkKeys()))

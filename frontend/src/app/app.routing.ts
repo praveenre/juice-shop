@@ -276,7 +276,13 @@ const routes: Routes = [
 ]
 // vuln-code-snippet end adminSectionChallenge scoreBoardChallenge web3SandboxChallenge
 
-export const Routing = RouterModule.forRoot(routes, { useHash: true })
+export const Routing = RouterModule.forRoot([
+  {
+    path: 'shopping-assistant',
+    loadComponent: async () => (await import('./shopping-assistant/shopping-assistant.component')).ShoppingAssistantComponent
+  },
+  ...routes
+], { useHash: true })
 
 export function oauthMatcher (url: UrlSegment[]): UrlMatchResult {
   if (url.length === 0) {

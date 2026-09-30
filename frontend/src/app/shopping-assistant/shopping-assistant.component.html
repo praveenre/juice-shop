@@ -1,0 +1,33 @@
+<section class="shopping-assistant">
+  <h1>Shopping assistant</h1>
+  <p>Ask about our products or shop guidelines: delivery, returns, payment, coupons, ingredients, and order tracking.</p>
+  <form (ngSubmit)="ask()">
+    <mat-form-field appearance="outline">
+      <mat-label>Your product question</mat-label>
+      <textarea matInput name="question" [(ngModel)]="question" maxlength="1000" rows="3"
+        aria-describedby="assistant-privacy" [disabled]="busy()" required></textarea>
+      <mat-hint>{{ question.length }}/1000</mat-hint>
+    </mat-form-field>
+    <p id="assistant-privacy">Guideline answers are generated locally. Product questions may be sent to OpenRouter (free model) to find matches; if that fails, the local catalog search is used. Do not include passwords, payment details, or confidential information.</p>
+    <button mat-raised-button type="submit" [disabled]="busy() || !question.trim()">
+      {{ busy() ? 'Searching products…' : 'Ask assistant' }}
+    </button>
+    <a mat-button routerLink="/search">Browse the shop</a>
+  </form>
+  <div aria-live="polite" [attr.aria-busy]="busy()">
+    @if (error()) { <p role="alert">{{ error() }}</p> }
+    @if (reply(); as response) {
+      <p>{{ response.message }}</p>
+      @for (product of response.answers; track product.id) {
+        <article class="product-card">
+          <img [src]="'assets/public/images/products/' + product.image" [alt]="product.name" loading="lazy">
+          <div class="product-info">
+            <h2>{{ product.name }}</h2>
+            <p class="price">{{ product.price | currency }}</p>
+            <p class="description">{{ product.description }}</p>
+          </div>
+        </article>
+      }
+    }
+  </div>
+</section>

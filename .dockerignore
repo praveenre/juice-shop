@@ -9,6 +9,7 @@ vagrant/
 logs/
 Dockerfile
 .npmrc
+.env*
 /bom.json
 /bom.xml
 .nyc_output

@@ -1259,32 +1259,36 @@
 	},
 	"tokenSaleChallenge_1.ts": {
 		"added": [
-			24
+			30
 		],
 		"removed": [
-			24
+			30
 		]
 	},
 	"tokenSaleChallenge_2.ts": {
 		"added": [
-			24
+			30
 		],
 		"removed": [
-			24
+			30
 		]
 	},
 	"tokenSaleChallenge_3_correct.ts": {
 		"added": [
 			10,
-			24,
-			36,
-			37,
-			44,
-			51,
-			59
+			30,
+			43,
+			50,
+			58,
+			66,
+			67,
+			68,
+			69,
+			70,
+			71
 		],
 		"removed": [
-			21
+			27
 		]
 	},
 	"unionSqlInjectionChallenge_1.ts": {

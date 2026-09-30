@@ -26,6 +26,10 @@
     </div>
 
     <div class="navbar-actions">
+      <button mat-button routerLink="/shopping-assistant" aria-label="Open shopping assistant">
+        <mat-icon>shopping_bag</mat-icon>
+        <span class="hide-lt-md">Shopping assistant</span>
+      </button>
       <button [matMenuTriggerFor]="userMenu" mat-button class="buttons hide-lt-md nav-button nav-account-button"
         aria-label="Show/hide account menu" id="navbarAccount">
         <mat-icon>

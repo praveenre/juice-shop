@@ -1,0 +1,44 @@
+@use '../../styles/variables' as *;
+
+.shopping-assistant {
+  margin: $space-xl auto;
+  max-width: 720px;
+  padding: $space-l;
+}
+
+.shopping-assistant mat-form-field {
+  width: 100%;
+}
+
+.shopping-assistant .product-card {
+  border: 1px solid currentcolor;
+  border-radius: 8px;
+  display: flex;
+  gap: $space-m;
+  margin-top: $space-m;
+  padding: $space-m;
+}
+
+.shopping-assistant .product-card img {
+  border-radius: 4px;
+  height: 100px;
+  object-fit: cover;
+  width: 100px;
+}
+
+.shopping-assistant .product-info {
+  flex: 1;
+}
+
+.shopping-assistant .product-info h2 {
+  margin: 0 0 $space-s;
+}
+
+.shopping-assistant .price {
+  font-weight: bold;
+  margin: 0 0 $space-s;
+}
+
+.shopping-assistant .description {
+  margin: 0;
+}
